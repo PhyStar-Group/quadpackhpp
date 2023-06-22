@@ -2,7 +2,7 @@
 //
 #include<iostream>
 #include<math.h>
-#include "../quadpack.hpp"
+#include "../include/quadpack.hpp"
 
 using namespace quadpack;
 using namespace std;
@@ -87,7 +87,7 @@ Real f12_2(Real x, Real user_data[])
 	return sqrt(x) * log(x);
 }
 //using pfun = Real(*)(Real, Real*);
-using qd = Quadpack_<Real,Real>;
+using qd = Quadpack_<Real, Real>;
 int main()
 {
 	{
@@ -106,7 +106,7 @@ int main()
 		momcom = 0;
 		epsabs = 1e-8;
 		epsrel = 1e-12;
-		result = qd::qfour(f1,nullptr, a, b, omega, COSINE, epsabs, epsrel,
+		result = qd::qfour(f1, nullptr, a, b, omega, COSINE, epsabs, epsrel,
 			icall, MAXP1, &abserr, &neval, &ier, &momcom, chebmo);
 		printf("\nresult = %.17lg\n", result);
 		printf("abserr = %.17lg\n", abserr);
@@ -115,7 +115,7 @@ int main()
 		for (i = 0; i < n; i++)
 			free(chebmo[i]);
 		free(chebmo);
-	
+
 	}
 	{
 		Real a, b, epsabs, epsrel, abserr;
@@ -128,7 +128,7 @@ int main()
 		epsrel = 1e-8;
 
 		for (irule = 1; irule <= 6; ++irule) {
-			y = qd::qage(f2,nullptr, a, b, epsabs, epsrel, irule, &abserr, &neval, &ier, &last);
+			y = qd::qage(f2, nullptr, a, b, epsabs, epsrel, irule, &abserr, &neval, &ier, &last);
 
 			printf("G/K rule = %i\n", irule);
 			printf("dqage integral = %.17lg\n", y);
@@ -147,7 +147,7 @@ int main()
 		epsabs = 0.0;
 		epsrel = 1e-8;
 
-		result = qd::qagi(f3_1,nullptr, bound, inf, epsabs, epsrel, &abserr, &neval, &ier);
+		result = qd::qagi(f3_1, nullptr, bound, inf, epsabs, epsrel, &abserr, &neval, &ier);
 
 		printf("dqagi integral approximation = %.17lg\n", result);
 		printf("estimate of absolute error = %.17lg\n", abserr);
@@ -156,23 +156,23 @@ int main()
 	}
 
 	{
-	Real a, b, epsabs, epsrel, abserr, points[4];
-	Real  result;
+		Real a, b, epsabs, epsrel, abserr, points[4];
+		Real  result;
 
-	int neval, npts2, ier;
+		int neval, npts2, ier;
 
-	a = 0.0;
-	b = 3.0;
-	npts2 = 4;
-	points[0] = 1.0;	/* location of singularity #1 */
-	points[1] = sqrt(2.0);	/* location of singularity #2 */
-	epsabs = 0.0;
-	epsrel = 1e-6;
+		a = 0.0;
+		b = 3.0;
+		npts2 = 4;
+		points[0] = 1.0;	/* location of singularity #1 */
+		points[1] = sqrt(2.0);	/* location of singularity #2 */
+		epsabs = 0.0;
+		epsrel = 1e-6;
 
-	result = qd::qagp(f4,nullptr, a, b, npts2, points, epsabs, epsrel, &abserr, &neval, &ier);
+		result = qd::qagp(f4, nullptr, a, b, npts2, points, epsabs, epsrel, &abserr, &neval, &ier);
 
-	cout<<"qagp integral = "<<result<<endl;
-	cout << "abserr = " << abserr <<", neval ="<< neval <<",ier="<<ier<<endl;
+		cout << "qagp integral = " << result << endl;
+		cout << "abserr = " << abserr << ", neval =" << neval << ",ier=" << ier << endl;
 	}
 	{
 		Real a, b, epsabs, epsrel, abserr;
@@ -183,9 +183,9 @@ int main()
 		b = 1.0;
 		epsabs = 0.0;
 		epsrel = 1e-6;
-		y = qd::qags(f5,nullptr, a, b, epsabs, epsrel, &abserr, &neval, &ier);
-		cout<<"qags integral = "<<y<<endl;
-		cout << "abserr = " << abserr <<", neval ="<< neval <<",ier="<<ier<<endl;
+		y = qd::qags(f5, nullptr, a, b, epsabs, epsrel, &abserr, &neval, &ier);
+		cout << "qags integral = " << y << endl;
+		cout << "abserr = " << abserr << ", neval =" << neval << ",ier=" << ier << endl;
 	}
 	{
 		Real a, b, epsabs, epsrel, abserr;
@@ -233,7 +233,7 @@ int main()
 		printf("Number of function evaluations = %d\n", neval);
 		printf("Error code = %d\n", ier);
 	}
-	{	
+	{
 		Real a, omega, result, abserr, epsabs;
 		int ier, neval;
 
@@ -254,7 +254,7 @@ int main()
 		omega = 10.0 * Pi;
 		epsabs = 0.0;
 		epsrel = 1e-6;
-		result = qd::qawo(f9_1,nullptr, a, b, omega, SINE, epsabs, epsrel, &abserr, &neval, &ier);
+		result = qd::qawo(f9_1, nullptr, a, b, omega, SINE, epsabs, epsrel, &abserr, &neval, &ier);
 		printf("\nresult = %.18lg\n", result);
 		printf("abserr 0= %.18lg\n", abserr);
 		printf("neval = %d\n", neval);
@@ -277,7 +277,7 @@ int main()
 		epsabs = 0.0;
 		epsrel = 1.0e-5;
 
-		result = qd::qaws(f10,nullptr, a, b, alfa, beta, wgtfunc, epsabs, epsrel, &abserr,
+		result = qd::qaws(f10, nullptr, a, b, alfa, beta, wgtfunc, epsabs, epsrel, &abserr,
 			&neval, &ier);
 
 		printf("Integral approximation = %.12lf\n", result);
@@ -301,7 +301,7 @@ int main()
 		nrmom = 0;
 		ksave = 0;
 		momcom = 0;
-		result = qd::qc25o(f11,nullptr, a, b, omega, COSINE, nrmom, MAXP1,
+		result = qd::qc25o(f11, nullptr, a, b, omega, COSINE, nrmom, MAXP1,
 			ksave, &abserr, &neval, &resabs, &resasc,
 			&momcom, chebmo);
 		printf("\nresult = %.14lg\n", result);
@@ -312,7 +312,7 @@ int main()
 			free(chebmo[i]);
 		free(chebmo);
 	}
-	{	
+	{
 		Real a, b, epsabs, epsrel, abserr;
 		Real y;
 		int neval, ier;
@@ -322,11 +322,11 @@ int main()
 		epsabs = 0.0e-8;
 		epsrel = 1e-12;
 
-		y = qd::qng(f12_2,nullptr, a, b, epsabs, epsrel, &abserr, &neval, &ier);
+		y = qd::qng(f12_2, nullptr, a, b, epsabs, epsrel, &abserr, &neval, &ier);
 
 		printf("dqng integral = %.17lg\n", y);
 		printf("abserr = %.17lg, neval = %d, ier = %d\n",
-			abserr, neval, ier); 
+			abserr, neval, ier);
 	}
 	cout << "Hello CMake." << endl;
 	return 0;

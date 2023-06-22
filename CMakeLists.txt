@@ -14,7 +14,7 @@ set(CMAKE_CXX_STANDARD 20)
 project ("quadpack")
 
 
-aux_source_directory(. DIR_SRCS)
+aux_source_directory(./include DIR_SRCS)
 aux_source_directory(./test DIR_SRCS)
 add_executable (quadpack ${DIR_SRCS})
 
