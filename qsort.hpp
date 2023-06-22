@@ -1,8 +1,8 @@
 #pragma once
 #include"quadpack.hpp"
 namespace quadpack {
-    template<typename T_fun,realtype T_real>
-    void Quadpack<T_fun, T_real>::qsort(int limit, int last, int* maxerr, T_real* ermax, T_real elist[], int iord[], int* nrmax)
+    template<typename T_fun, typename T_param, realtype T_real>
+    void Quadpack<T_fun, T_param, T_real>::qsort(int limit, int last, int* maxerr, T_real* ermax, T_real elist[], int iord[], int* nrmax)
     {
         T_real errmax, errmin;
         int i, ibeg, ido, isucc, j, jbnd, jupbn, k;

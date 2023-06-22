@@ -87,7 +87,7 @@ Real f12_2(Real x, Real user_data[])
 	return sqrt(x) * log(x);
 }
 //using pfun = Real(*)(Real, Real*);
-using qd = Quadpack_<Real>;
+using qd = Quadpack_<Real,Real>;
 int main()
 {
 	{

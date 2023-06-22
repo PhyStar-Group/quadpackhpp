@@ -3,8 +3,8 @@
 
 
 namespace quadpack {
-    template<typename T_fun, realtype T_real>
-    T_real Quadpack<T_fun, T_real>::qc25s(T_fun f, T_real user_data[], T_real a, T_real b, T_real bl, T_real br, T_real alfa,
+    template<typename T_fun, typename T_param, realtype T_real>
+    T_real Quadpack<T_fun, T_param, T_real>::qc25s(T_fun f, T_param user_data[], T_real a, T_real b, T_real bl, T_real br, T_real alfa,
         T_real beta, T_real ri[], T_real rj[], T_real rg[], T_real rh[],
         T_real* abserr, T_real* resasc, int wgtfunc, int* nev)
     {
@@ -60,7 +60,7 @@ namespace quadpack {
         res12 = 0.0;
         res24 = 0.0;
         if (wgtfunc > 2) goto _70;
-       qcheb(x, fval, cheb12, cheb24);
+        qcheb(x, fval, cheb12, cheb24);
 
         /*  wgtfunc = 1  (or 2) */
         for (i = 0; i < 13; i++) {
@@ -180,7 +180,7 @@ namespace quadpack {
         for (i = 13; i < 25; i++) {
             res24 += (cheb24[i] * rh[i]);
         }
-//    _190:
+        //    _190:
         goto _260;
 
         /*  Compute the Chebyshev series expansion of the following function:

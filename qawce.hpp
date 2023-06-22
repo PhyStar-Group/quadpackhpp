@@ -24,8 +24,8 @@
  *      ier     -   error code
  */
 namespace quadpack {
-    template<typename T_fun, realtype T_real>
-    T_real Quadpack<T_fun, T_real>::qawce(T_fun f, T_real user_data[], T_real a, T_real b, T_real c, T_real epsabs,
+    template<typename T_fun,typename T_param, realtype T_real>
+    T_real Quadpack<T_fun, T_param, T_real>::qawce(T_fun f, T_param user_data[], T_real a, T_real b, T_real c, T_real epsabs,
         T_real epsrel, T_real* abserr, int* neval, int* ier)
     {
         T_real aa, area, area1, area2, area12, a1, a2, bb, b1, b2;

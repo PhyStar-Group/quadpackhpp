@@ -1,8 +1,8 @@
 #pragma once
 #include"quadpack.hpp"
 namespace quadpack {
-    template<typename T_fun,realtype T_real>
-    void Quadpack<T_fun, T_real>::qmomo(T_real alpha, T_real beta, T_real ri[], T_real rj[], T_real rg[], T_real rh[], int wgtfunc)
+    template<typename T_fun, typename T_param, realtype T_real>
+    void Quadpack<T_fun, T_param, T_real>::qmomo(T_real alpha, T_real beta, T_real ri[], T_real rj[], T_real rg[], T_real rh[], int wgtfunc)
     {
         T_real alfp1, alfp2, an, anm1, betp1, betp2, ralf, rbet;
         int i, im1;

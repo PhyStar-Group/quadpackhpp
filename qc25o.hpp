@@ -2,9 +2,9 @@
 #include"quadpack.hpp"
 
 namespace quadpack {
-    static constexpr auto NMAC=27;
-    template<typename T_fun, realtype T_real>
-    T_real Quadpack<T_fun, T_real>::qc25o(T_fun f, T_real user_data[], T_real a, T_real b, T_real omega, int sincos, int nrmom, int maxp1, int ksave, T_real* abserr, int* neval,
+    static constexpr auto NMAC = 27;
+    template<typename T_fun, typename T_param, realtype T_real>
+    T_real Quadpack<T_fun, T_param, T_real>::qc25o(T_fun f, T_param user_data[], T_real a, T_real b, T_real omega, int sincos, int nrmom, int maxp1, int ksave, T_real* abserr, int* neval,
         T_real* resabs, T_real* resasc, int* momcom, T_real** chebmo)
     {
         static T_real x[11] = {

@@ -36,8 +36,8 @@
  *    epsrel - relative accuracy requested.
  */
 namespace quadpack {
-    template<typename T_fun, realtype T_real>
-    T_real Quadpack<T_fun, T_real>::qagi(T_fun f, T_real user_data[], T_real bound, int inf, T_real epsabs, T_real epsrel, T_real* abserr, int* neval, int* ier)
+    template<typename T_fun, typename T_param, realtype T_real>
+    T_real Quadpack<T_fun, T_param, T_real>::qagi(T_fun f, T_param user_data[], T_real bound, int inf, T_real epsabs, T_real epsrel, T_real* abserr, int* neval, int* ier)
     {
         T_real abseps, area, area1, area12, area2, a1, a2, b1, b2;
         T_real boun, correc, defabs, defab1, defab2, dres, erlarg;

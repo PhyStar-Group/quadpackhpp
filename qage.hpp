@@ -29,8 +29,8 @@
  */
 
 namespace quadpack {
-    template<typename T_fun, realtype T_real>
-    T_real Quadpack<T_fun, T_real>::qage(T_fun f, T_real user_data[], T_real a, T_real b, T_real epsabs, T_real epsrel, int irule, T_real* abserr, int* neval, int* ier, int* last)
+    template<typename T_fun, typename T_param, realtype T_real>
+    T_real Quadpack<T_fun, T_param, T_real>::qage(T_fun f, T_param user_data[], T_real a, T_real b, T_real epsabs, T_real epsrel, int irule, T_real* abserr, int* neval, int* ier, int* last)
     {
         T_real area, area1, area2, area12, a1, a2, b1, b2, c, defabs;
         T_real defab1, defab2, errbnd, errmax, error1, error2;
@@ -78,7 +78,7 @@ namespace quadpack {
             result = gk51(f, user_data, a, b, abserr, &defabs, &resabs);
             break;
         case 6:
-            result = gk61(f, user_data,a, b, abserr, &defabs, &resabs);
+            result = gk61(f, user_data, a, b, abserr, &defabs, &resabs);
             break;
         }
         *last = 0;

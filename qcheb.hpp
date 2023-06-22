@@ -1,8 +1,8 @@
 #pragma once
 #include"quadpack.hpp"
 namespace quadpack {
-    template<typename T_fun,realtype T_real>
-    void Quadpack<T_fun, T_real>::qcheb(T_real* x, T_real* fval, T_real* cheb12, T_real* cheb24)
+    template<typename T_fun, typename T_param, realtype T_real>
+    void Quadpack<T_fun, T_param, T_real>::qcheb(T_real* x, T_real* fval, T_real* cheb12, T_real* cheb24)
     {
         T_real alam, alam1, alam2, part1, part2, part3;
         T_real v[12];

@@ -2,8 +2,8 @@
 #include"quadpack.hpp"
 
 namespace quadpack {
-    template<typename T_fun, realtype T_real>
-    T_real Quadpack<T_fun, T_real>::qng(T_fun f, T_real user_data[], T_real a, T_real b, T_real epsabs, T_real epsrel, T_real* abserr, int* neval, int* ier)
+    template<typename T_fun, typename T_param, realtype T_real>
+    T_real Quadpack<T_fun, T_param, T_real>::qng(T_fun f, T_param user_data[], T_real a, T_real b, T_real epsabs, T_real epsrel, T_real* abserr, int* neval, int* ier)
     {
         static T_real x1[5] = {
         0.97390652851717172008,

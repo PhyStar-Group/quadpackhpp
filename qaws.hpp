@@ -28,8 +28,8 @@
  *
  */
 namespace quadpack {
-    template<typename T_fun, realtype T_real>
-    T_real Quadpack<T_fun, T_real>::qaws(T_fun f, T_real user_data[], T_real a, T_real b, T_real alfa, T_real beta, int wgtfunc,
+    template<typename T_fun, typename T_param, realtype T_real>
+    T_real Quadpack<T_fun, T_param, T_real>::qaws(T_fun f, T_param user_data[], T_real a, T_real b, T_real alfa, T_real beta, int wgtfunc,
         T_real epsabs, T_real epsrel, T_real* abserr, int* neval, int* ier)
     {
         T_real result;

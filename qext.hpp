@@ -1,8 +1,8 @@
 #pragma once
 #include"quadpack.hpp"
 namespace quadpack {
-    template<typename T_fun,realtype T_real>
-    T_real Quadpack<T_fun, T_real>::qext(int* n, T_real epstab[], T_real* abserr, T_real res3la[], int* nres)
+    template<typename T_fun, typename T_param, realtype T_real>
+    T_real Quadpack<T_fun, T_param, T_real>::qext(int* n, T_real epstab[], T_real* abserr, T_real res3la[], int* nres)
     {
         T_real delta1, delta2, delta3, epsinf;
         T_real error, err1, err2, err3, e0, e1, e1abs, e2, e3;

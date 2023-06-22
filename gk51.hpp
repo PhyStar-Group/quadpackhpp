@@ -1,8 +1,8 @@
 #pragma once
 #include"quadpack.hpp"
 namespace quadpack {
-    template<typename T_fun, realtype T_real>
-    T_real Quadpack<T_fun, T_real>::gk51(T_fun f, T_real user_data[], T_real a, T_real b, T_real* abserr, T_real* resabs, T_real* resasc)
+    template<typename T_fun, typename T_param, realtype T_real>
+    T_real Quadpack<T_fun, T_param, T_real>::gk51(T_fun f, T_param user_data[], T_real a, T_real b, T_real* abserr, T_real* resabs, T_real* resasc)
     {
         /* Gauss-Kronrod abscissae and weights for 51 - 25 rules */
         static T_real XGK51[26] = {

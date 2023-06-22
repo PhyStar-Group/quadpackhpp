@@ -28,9 +28,9 @@
  */
 namespace quadpack {
     static constexpr auto P = 0.9;
-    template<typename T_fun, realtype T_real>
-    T_real Quadpack<T_fun, T_real>::qawfe(T_fun f, T_real user_data[], T_real a, T_real omega, int sincos, T_real epsabs, int limlst, int maxp1, T_real* abserr, int* neval, int* ier,
-        T_real* rslst, T_real* erlst, int* ierlst, T_real** chebmo)
+    template<typename T_fun, typename T_param, realtype T_real>
+        T_real Quadpack<T_fun, T_param, T_real>::qawfe(T_fun f, T_param user_data[], T_real a, T_real omega, int sincos, T_real epsabs, int limlst, int maxp1, T_real* abserr, int* neval, int* ier,
+            T_real* rslst, T_real* erlst, int* ierlst, T_real** chebmo)
     {
         T_real abseps, correc, cycle, c1, c2, dl, drl;
         T_real ep, eps, epsa, errsum, fact, p1, psum[52], reseps;
@@ -145,7 +145,7 @@ namespace quadpack {
             ll = numrl2;
             c1 = c2;
             c2 += cycle;
-//        _50:
+            //        _50:
             ;
         }
 

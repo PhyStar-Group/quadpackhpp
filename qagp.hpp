@@ -34,8 +34,8 @@
  */
 
 namespace quadpack {
-    template<typename T_fun, realtype T_real>
-    T_real Quadpack<T_fun, T_real>::qagp(T_fun f, T_real user_data[], T_real a, T_real b, int npts2, T_real* points, T_real epsabs, T_real epsrel, T_real* abserr, int* neval, int* ier)
+    template<typename T_fun, typename T_param, realtype T_real>
+    T_real Quadpack<T_fun, T_param, T_real>::qagp(T_fun f, T_param user_data[], T_real a, T_real b, int npts2, T_real* points, T_real epsabs, T_real epsrel, T_real* abserr, int* neval, int* ier)
     {
         T_real abseps, alist[LIMIT], area, area1, area12, area2;
         T_real a1, a2, blist[LIMIT], b1, b2, correc, defabs, defab1;
@@ -187,7 +187,7 @@ namespace quadpack {
             ksgn = 1;
 
         /* Main loop. */
-        for (last = npts2-1; last <= limit; last++) { //CZW: last should be C style
+        for (last = npts2 - 1; last <= limit; last++) { //CZW: last should be C style
 
             /* Bisect the interval with the nrmax-th largest error estimate. */
             levcur = level[maxerr] + 1;

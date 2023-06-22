@@ -28,8 +28,8 @@
  *
  */
 namespace quadpack {
-    template<typename T_fun, realtype T_real>
-    T_real Quadpack<T_fun, T_real>::qawse(T_fun f, T_real user_data[], T_real a, T_real b, T_real alfa, T_real beta,
+    template<typename T_fun, typename T_param, realtype T_real>
+    T_real Quadpack<T_fun, T_param, T_real>::qawse(T_fun f, T_param user_data[], T_real a, T_real b, T_real alfa, T_real beta,
         int wgtfunc, T_real epsabs, T_real epsrel, T_real* abserr,
         int* neval, int* ier)
     {
@@ -146,7 +146,7 @@ namespace quadpack {
             if ((iroff1 > 5) || (iroff2 > 19)) *ier = 2;
 
             /*  Set error flag in case of bad integrand behavior at interior points. */
-            if ( max(fabs(a1), fabs(b2)) <= ((1.0 + 1.0e3 * epmach) * (fabs(a2) + 1.0e3 * uflow))) *ier = 3;
+            if (max(fabs(a1), fabs(b2)) <= ((1.0 + 1.0e3 * epmach) * (fabs(a2) + 1.0e3 * uflow))) *ier = 3;
             /*  Append the newly created intervals to the list. */
         _35:
             if (error2 <= error1) {

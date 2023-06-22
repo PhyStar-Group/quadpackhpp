@@ -20,8 +20,8 @@
  *
  */
 namespace quadpack {
-    template<typename T_fun, realtype T_real>
-    T_real Quadpack<T_fun, T_real>::qawf(T_fun f, T_real user_data[], T_real a, T_real omega, int sincos, T_real epsabs,
+    template<typename T_fun, typename T_param, realtype T_real>
+    T_real Quadpack<T_fun, T_param, T_real>::qawf(T_fun f, T_param user_data[], T_real a, T_real omega, int sincos, T_real epsabs,
         T_real* abserr, int* neval, int* ier)
     {
         T_real** chebmo, erlst[50];
