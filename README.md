@@ -4,5 +4,7 @@
 ```
 #include"</path/to/quadpackhpp/quadpack.hpp"
 ```
+## How To USE
+- please see test
 ## To Do List
-- add test and examples
+- add tests to cover all functions
