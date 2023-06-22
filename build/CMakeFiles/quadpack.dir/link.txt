@@ -1,1 +1,0 @@
-/usr/bin/g++-10     CMakeFiles/quadpack.dir/test/test.cpp.o  -o quadpack 

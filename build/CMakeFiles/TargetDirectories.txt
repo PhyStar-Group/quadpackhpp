@@ -1,3 +1,0 @@
-/mnt/f/linuxOS/PhyStar-subLib/quadpackhpp/build/CMakeFiles/rebuild_cache.dir
-/mnt/f/linuxOS/PhyStar-subLib/quadpackhpp/build/CMakeFiles/edit_cache.dir
-/mnt/f/linuxOS/PhyStar-subLib/quadpackhpp/build/CMakeFiles/quadpack.dir
