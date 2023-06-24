@@ -20,12 +20,14 @@ namespace quadpack {
     constexpr auto FALSE = 0;
     constexpr auto TRUE = 1;
 
-#ifndef min
-#define min(a,b)    (((a) < (b)) ? (a) : (b))
-#endif
-#ifndef max
-#define max(a,b)    (((a) > (b)) ? (a) : (b))
-#endif
+    static inline auto min(auto a, auto b)
+    {
+        return std::min(a, b);
+    }
+    static inline auto max(auto a, auto b)
+    {
+        return std::max(a, b);
+    }
 
 
     template<typename T>
